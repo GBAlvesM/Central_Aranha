@@ -399,6 +399,10 @@
     font-size: 1.1rem;
 }
 
+.conteudorodape a {
+    margin-right: 8px;
+}
+
 .conteudorodape img {
     align-self: center;
 }

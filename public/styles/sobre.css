@@ -179,6 +179,7 @@
 .textfoto h2 {
     color: black;
     font-family: var(--fonte-titulo);
+    font-weight: lighter;
     font-size: 2.2rem;
     margin-bottom: 15px;
 }
@@ -186,6 +187,7 @@
 .textfoto2 h2 {
     color: black;
     font-family: var(--fonte-titulo);
+    font-weight: lighter;
     font-size: 2.2rem;
     margin-bottom: 15px;
 }
@@ -193,6 +195,7 @@
 .textfoto3 h2 {
     color: black;
     font-family: var(--fonte-titulo);
+    font-weight: lighter;
     font-size: 2.2rem;
     margin-bottom: 15px;
 }
@@ -243,6 +246,11 @@
     font-family: var(--fonte-corpo);
     font-size: 1.1rem;
 }
+
+.conteudorodape a {
+    margin-right: 8px;
+}
+
 
 .conteudorodape img {
     align-self: center;
