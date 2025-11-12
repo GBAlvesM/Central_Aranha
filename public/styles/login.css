@@ -39,6 +39,7 @@ body, * {
     display: flex;
 }
 
+
 .imgbox {
     width: 55%;
     background: url("../assets/login.jpg");

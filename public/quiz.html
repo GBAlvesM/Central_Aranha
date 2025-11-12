@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/quiz.css">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <title>Quiz</title>
+</head>
+<body onload="esconder()">
+    <div class="container">
+        <div class="volta"><a href="index.html" class="voltar">Voltar ao site</a></div>
+        <div id="iniciar"><button onclick="iniciarQuiz()">Iniciar quiz</button></div>
+        <div class="box" id="jogo">
+            <img src="assets/favicon.png" alt="" class="logo">
+        </div>
+    </div>
+</body> 
+<script>
+    const perguntas = [
+
+        {
+        pergunta: 'Qual é o nome do cientista brilhante que se torna o vilão Doutor Octopus?',
+        letraA: 'Curt Connors',
+        letraB: 'Otto Octavius',
+        letraC: 'Adrian Toomes',
+        letraD: 'Flint Marko',
+        correta: 'letraB'
+        },
+        {
+        pergunta: 'Qual personagem de apoio é famoso por ser o editor-chefe do jornal Daily Bugle e por constantemente difamar o Homem-Aranha em suas manchetes?',
+        letraA: 'Robbie Robertson',
+        letraB: 'Norman Osborn',
+        letraC: 'J. Jonah. Jameson (JJJ)',
+        letraD: 'George Stacy',
+        correta: 'letraC' 
+        },
+        {
+        pergunta: 'Em qual bairro de Nova York Peter Parker viveu a maior parte de sua vida com a Tia May e o Tio Ben?',
+        letraA: 'Manhattam',
+        letraB: 'Metrópolis',
+        letraC: 'Queens',
+        letraD: 'Brooklyn',
+        correta: 'letraC' 
+        },
+        {
+        pergunta: 'O que o Sentido-Aranha faz?',
+        letraA: 'Aumenta a força física do Peter Parker',
+        letraB: 'Permite que ele se comunique telepáticamente com as aranhas',
+        letraC: 'Cria e dispara teias orgânicas do seu pulso',
+        letraD: 'Alerta Peter Parker dos perigos iminentes',
+        correta: 'letraD' 
+        },
+        {
+        pergunta: 'Qual é o nome verdadeiro do vilão original e mais icônico Duende Verde?',
+        letraA: 'Norman Osborn',
+        letraB: 'Flash Thompson',
+        letraC: 'Harry Osborn',
+        letraD: 'Rodercik Kingsley',
+        correta: 'letraA' 
+        },
+        {
+        pergunta: 'Quem foi o criador dos Lançadores de Teia do Homem-Aranha, o equipamento que permite disparar as teias?',
+        letraA: 'Tony Stark',
+        letraB: 'Reed Richards',
+        letraC: 'Otto Octavius',
+        letraD: 'Peter Parker',
+        correta: 'letraD' 
+        },
+        {
+        pergunta: 'Antes de se tornar o vilão Venom, qual repórter do Daily Bugle se uniu ao simbionte alienígena em busca de vingança contra Peter Parker?',
+        letraA: 'Cletus Kasady',
+        letraB: 'Eddie Brock',
+        letraC: 'Mac Gargan',
+        letraD: 'Flash Thompson',
+        correta: 'letraB' 
+        },
+        {
+        pergunta: 'Qual foi a frase marcante dita pelo Tio Ben a Peter Parker que se tornou o lema e a bússola moral do herói?',
+        letraA: 'A coragem de um homem não está em não ter medo, mas em superá-lo.',
+        letraB: 'O preço da glória é a responsabilidade pessoal.',
+        letraC: 'Com grandes poderes, vêm grandes responsabilidades.',
+        letraD: 'A única coisa que se interpõe entre você e seu sonho é a vontade de tentar.',
+        correta: 'letraC' 
+        },
+        {
+        pergunta: 'Qual é o trabalho mais comum de Peter Parker para se sustentar?',
+        letraA: 'Fotógrafo',
+        letraB: 'Carteiro',
+        letraC: 'Professor de Ciências',
+        letraD: 'Cientista de Laboratório',
+        correta: 'letraA' 
+        },
+        {
+        pergunta: 'Qual é o nome da garota que Peter Parker considerou seu primeiro amor, conhecida por sua morte trágica causada pelo Duende Verde?',
+        letraA: 'Liz Allan',
+        letraB: 'Mary Jane Watson',
+        letraC: 'Betty Brant',
+        letraD: 'Gwen Stacy',
+        correta: 'letraD' 
+        }
+    ]
+
+    function esconder() {
+        jogo.style.display = "none"
+    }
+
+    function iniciarQuiz() {
+        jogo.style.display = "flex"
+        iniciar.style.display = "none"
+    }
+</script>
+</html>
