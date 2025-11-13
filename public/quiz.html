@@ -14,6 +14,35 @@
         <div id="iniciar"><button onclick="iniciarQuiz()">Iniciar quiz</button></div>
         <div class="box" id="jogo">
             <img src="assets/favicon.png" alt="" class="logo">
+            <div id="questoes">Questão: <span id="questaoA"></span> de <span id="quantQuestoes"></span></div>
+            <div id="questaoAt">
+                <span id="txtQuestao"></span>
+            </div>
+            <div id="informacao">
+                <span>Escolha uma das alternativas abaixo:</span>
+            </div>
+            <div id="opcoes">
+                <div id="linha1">
+                    <span>
+                        <input type="radio" name="option" id="opcaoA" class="radio" value="alternativaA">
+                        <label for="opcaoA" class="option" id="labelOpcaoA">a</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="option" id="opcaoB" class="radio" value="alternativaB">
+                        <label for="opcaoAB" class="option" id="labelOpcaoB">b</label>
+                    </span>
+                </div>
+                <div id="linha2">
+                    <span>
+                        <input type="radio" name="option" id="opcaoC" class="radio" value="alternativaC">
+                        <label for="opcaoC" class="option" id="labelOpcaoC">c</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="option" id="opcaoD" class="radio" value="alternativaD">
+                        <label for="opcaoD" class="option" id="labelOpcaoD">d</label>
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
 </body> 
@@ -102,6 +131,13 @@
         }
     ]
 
+    let quantidadeQuestoes = perguntas.length
+    let questaoAtual = 0
+    let certas = 0
+    let erradas = 0
+    let tentativaIncorreta = 0
+    let pontuacaoFinal = 0
+
     function esconder() {
         jogo.style.display = "none"
     }
@@ -109,6 +145,10 @@
     function iniciarQuiz() {
         jogo.style.display = "flex"
         iniciar.style.display = "none"
+
+        document.getElementById('quantQuestoes').innerHTML = quantidadeQuestoes
+
+        
     }
 </script>
 </html>

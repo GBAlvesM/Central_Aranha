@@ -93,10 +93,57 @@ body {
     border: 4px solid black;
     box-shadow: 6px 7px black;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 20px;
+    font-family: var(--fonte-corpo);
+    font-size: 1.3rem;
+}
+
+#informacao {
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
 .logo {
-    height: 80px;
+    width: 80px;
+    margin-bottom: 30px;
+}
+
+#opcoes {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#opcoes input[type="radio"] {
+    font-family: var(--fonte-corpo);
+    height: 1.5rem;
+    width: 1.5rem;
+    accent-color: rgb(213, 3, 3);
+    cursor: pointer;
+}
+
+#linha1 {
+    display: flex;
+    gap: 200px;
+}
+
+#linha2 {
+    display: flex;
+    gap: 200px;
+}
+
+#linha1 span {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#linha2 span {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
