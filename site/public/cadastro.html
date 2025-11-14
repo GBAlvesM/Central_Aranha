@@ -109,12 +109,28 @@
                     // Agora vá para o arquivo routes/usuario.js
                     nomeServer: nome,
                     emailServer: email,
-                    senhaServer: senha
+                    senhaServer: senha,
+                    preferenciaServer: preferencia
                 }),
             })
-            
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
 
-            // window.location.href = ("login.html")
+                    if (resposta.ok) {
+                        setTimeout(() => {
+                            window.location = "login.html";
+                        }, "1000");
+
+                    } else {
+                        throw "Houve um erro ao tentar realizar o cadastro!";
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
+
+            return false;
+
         }
     }
 
