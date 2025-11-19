@@ -17,7 +17,6 @@ function buscarPreferencia(req, res) {
 
 function buscarKpis(req, res) {
     var id = req.body.idServer;
-    console.log('ola mundo')
 
     if (id == undefined) {
         res.status(400).send("Seu id está undefined!");
