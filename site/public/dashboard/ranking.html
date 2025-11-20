@@ -26,32 +26,32 @@
             </div>
             <div id="conteudo">
                 <div id="bv">
-                    <h1>Olá, <span id="nomeUser"></span>, veja os seus resultados!</h1>
+                    <h1>Ranking de pontuação</h1>
                 </div>
                 <div id="grafs">
-                    <div id="sessao1">
-                        <div id="kpis">
-                            <div class="cardkpi">
-                                <p>Sua última pontuação:</p><span id="ultNota">#</span>
+                    <div id="rankingUser">
+                        <h2>Top Usuários da Central Aranha</h2>
+                        <div id="rank">
+                            <div class="linhaRank">
+                                <span class="lugar T1">1</span> <span id="nomeT1">fulano</span> <span
+                                    id="pontuacaoT1">#</span>
                             </div>
-                            <div class="cardkpi">
-                                <p>Sua maior pontuação:</p><span id="maiNota">#</span>
+                            <div class="linhaRank">
+                                <span class="lugar T2">2</span> <span id="nomeT2">fulano</span> <span
+                                    id="pontuacaoT2">#</span>
                             </div>
-                            <div class="cardkpi">
-                                <p>Taxa de acertos:</p><span id="txAcerto">#</span>
+                            <div class="linhaRank">
+                                <span class="lugar T3">3</span> <span id="nomeT3">fulano</span> <span
+                                    id="pontuacaoT3">#</span>
                             </div>
-                        </div>
-                        <div id="graficoTentativas">
-                            <canvas id="myChart2"></canvas>
-                        </div>
-                        <div id="graficoMedia">
-                            <canvas id="myChart3"></canvas>
-                        </div>
-                    </div>
-                    <div id="sessao2">
-                        <h2>Qual Homem-Aranha a comunidade prefere?</h2>
-                        <div id="graficoPreferencia">
-                            <canvas id="myChart1"></canvas>
+                            <div class="linhaRank">
+                                <span class="lugar">4</span> <span id="nomeT4">fulano</span> <span
+                                    id="pontuacaoT4">#</span>
+                            </div>
+                            <div class="linhaRank">
+                                <span class="lugar">5</span> <span id="nomeT5">fulano</span> <span
+                                    id="pontuacaoT5">#</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -63,78 +63,10 @@
     window.onload = dadosPreferencia()
 
     function dadosPreferencia() {
-        document.getElementById("nomeUser").innerHTML = sessionStorage.NOME_USUARIO
         const idUser = sessionStorage.ID_USUARIO
 
-        console.log(idUser)
 
-        fetch("/medidas/preferencias")
-            .then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (resposta) {
-                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`)
-
-                        let labelsGraf = []
-                        let valores = []
-
-                        resposta.forEach(item => {
-                            labelsGraf.push(item.preferencia)
-                            valores.push(item.Total)
-                        })
-
-                        const ctx = document.getElementById("myChart1")
-
-                        new Chart(ctx, {
-                            type: 'doughnut',
-                            data: {
-                                labels: labelsGraf,
-                                datasets: [{
-                                    label: 'Preferências da comunidade',
-                                    data: valores,
-                                    borderWidth: 1,
-                                    borderColor: '#000000',
-                                    backgroundColor: ['#b42727', '#246caf']
-                                }]
-                            },
-                            options: {
-                                responsive: true,
-                                scales: {
-                                    y: {
-                                        beginAtZero: true,
-                                        grid: {
-                                            display: false
-                                        },
-                                        border: {
-                                            display: false
-                                        },
-                                        ticks: {
-                                            display: false
-                                        }
-                                    }
-                                },
-                                plugins: {
-                                    legend: {
-                                        labels: {
-                                            font: {
-                                                size: 16,
-                                                family: 'avenir'
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        });
-                    }
-                    )
-                } else {
-                    console.error('Nenhum dado encontrado ou erro na API')
-                }
-            })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados para o gráfico ${error.message}`)
-            })
-
-        fetch("/medidas/kpis", {
+        fetch("/medidas/ranking", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -145,24 +77,31 @@
             }),
 
         })
-            .then(function (responsek) {
-                if (responsek.ok) {
-                    responsek.json().then(function (kpisResult) {
-                        console.log(`Dados recebidos: ${JSON.stringify(kpisResult)}`)
+            .then(function (responseR) {
+                if (responseR.ok) {
+                    responseR.json().then(function (rankingResult) {
+                        console.log(`Dados recebidos: ${JSON.stringify(rankingResult)}`)
 
-                        var ultimaNota = null
-                        var maiorNota = null
-                        var taxaAcerto = null
+                        var nomesTop = []
+                        var notasTop = []
 
-                        kpisResult.forEach(item => {
-                            ultimaNota = item.Ultima
-                            maiorNota = item.Maior
-                            taxaAcerto = item.Taxa
-
-                            ultNota.innerHTML = ultimaNota
-                            maiNota.innerHTML = maiorNota
-                            txAcerto.innerHTML = taxaAcerto
+                        rankingResult.forEach(item => {
+                            nomesTop.push(item.nome)
+                            notasTop.push(item.pontuacao)
                         })
+
+                        document.getElementById("nomeT1").innerHTML = nomesTop[0]
+                        document.getElementById("nomeT2").innerHTML = nomesTop[1]
+                        document.getElementById("nomeT3").innerHTML = nomesTop[2]
+                        document.getElementById("nomeT4").innerHTML = nomesTop[3]
+                        document.getElementById("nomeT5").innerHTML = nomesTop[4]
+
+                        document.getElementById("pontuacaoT1").innerHTML = notasTop[0]
+                        document.getElementById("pontuacaoT2").innerHTML = notasTop[1]
+                        document.getElementById("pontuacaoT3").innerHTML = notasTop[2]
+                        document.getElementById("pontuacaoT4").innerHTML = notasTop[3]
+                        document.getElementById("pontuacaoT5").innerHTML = notasTop[4]
+
                     }
                     )
                 } else {
@@ -172,77 +111,8 @@
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados para o gráfico ${error.message}`)
             })
+
     }
-
-
-
-    const ctx = document.getElementById('myChart2');
-
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 7, 11, 15, 10, 6, 9],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true
-                },
-
-            },
-            plugins: {
-                legend: {
-                    labels: {
-                        font: {
-                            size: 14,
-                            family: 'avenir'
-                        }
-                    }
-                }
-            }
-        }
-    });
-
-    const ctx2 = document.getElementById('myChart3');
-
-    new Chart(ctx2, {
-        type: 'bar',
-        data: {
-            labels: ['Sua nota', 'Nota média'],
-            datasets: [{
-                label: '# of Votes',
-                data: [6, 10],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            indexAxis: 'y',
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            },
-            plugins: {
-                legend: {
-                    labels: {
-                        font: {
-                            size: 14,
-                            family: 'avenir'
-                        }
-                    }
-                }
-            }
-        }
-    });
 
 </script>
 

@@ -40,7 +40,7 @@ body {
 #boxdash {
     background-color: white;
     height: 96%;
-    width: 98%;
+    width: 65%;
     box-shadow: 5px 6px black;
     border: 2px solid black;
     display: flex;
@@ -48,7 +48,7 @@ body {
 
 #menu {
     height: 100%;
-    width: 18%;
+    width: 20%;
     background-color: #246caf;
     border-right: 2px solid black;
     display: flex;
@@ -83,90 +83,31 @@ body {
     padding: 10px;
 }
 
+
 #grafs {
     width: 100%;
     height: 85%;
     padding: 10px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
 }
 
 #sessao1 {
     height: 105%;
-    width: 50%;
-    border: 1px solid black;
+    width: 100%;
+    border: 2px solid black;
     padding: 10px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     gap: 15px;
 
     box-shadow: 3px 4px black;
 }
 
-#sessao2 {
-    height: 105%;
-    width: 50%;
-    border: 1px solid black;
-    padding: 10px;
-
-    box-shadow: 3px 4px black;
-}
-
-#sessao2 h2 {
-    font-family: var(--fonte-titulo);
-    font-weight: 200;
-    font-size: 1.7rem;
-    margin-bottom: 15px;
-}
-
-#kpis {
-    height: 12%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    margin-bottom: 32px;
-}
-
-.cardkpi {
-    height: 100px;
-    width: 180px;
-    border: 1px solid black;
-    box-shadow: 2px 3px black;
-    padding: 5px;
-    text-align: center;
-    font-size: 1rem;
-}
-
-.cardkpi span {
-   font-size: 3.6rem;
-   font-family: var(--fonte-titulo);
-}
-
-.cardkpi p {
-    margin-bottom: 2px;
-}
-
-#graficoTentativas {
-    width: 100%;
-    height: 39%;
-    border: 1px solid red;
-}
-
-#graficoMedia {
-    width: 100%;
-    height: 39%;
-    border: 1px solid red;
-}
-
-#graficoPreferencia {
-    width: 100%;
-    height: 85%;
-    border: 1px solid red;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 .itens {
     display: flex;
@@ -188,7 +129,7 @@ body {
 }
 
 .logout {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-family: var(--fonte-corpo);
     display: flex;
     flex-direction: column;
@@ -203,4 +144,69 @@ body {
 
 .logout a:hover {
     text-decoration: underline;
+}
+
+#rankingUser {
+    height: 100%;
+    width: 80%;
+    border: 2px solid black;
+    box-shadow: 3px 4px black;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#rankingUser h2 {
+    font-family: var(--fonte-titulo);
+    font-weight: 200;
+    font-size: 1.75rem;
+}
+
+#rank {
+    margin-top: 10px;
+    width: 95%;
+    height: 91%;
+    border: 2px solid black;
+    font-size: 1.2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.linhaRank {
+    width: 100%;
+    height: 100px;
+    border-bottom: 2px solid black;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.lugar {
+    border: 2px solid black;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    font-weight: 600;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.T1 {
+    background-color: #f0d50b;
+}
+
+.T2 {
+    background-color: #c5d5d9;
+}
+
+.T3 {
+    background-color: #c6660c;
 }

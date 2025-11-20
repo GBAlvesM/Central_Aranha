@@ -11,4 +11,12 @@ router.post("/kpis", function (req, res) {
     medidaController.buscarKpis(req, res);
 });
 
+router.post("/tentativas", function (req, res) {
+    medidaController.buscarTentativas(req, res);
+});
+
+router.post("/ranking", function (req, res) {
+    medidaController.rankear(req, res);
+});
+
 module.exports = router;

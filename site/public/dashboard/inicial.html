@@ -191,7 +191,7 @@
                             },
 
                             options: {
-                                
+
                                 responsive: true,
                                 maintainAspectRatio: false,
                                 indexAxis: 'y',
@@ -232,45 +232,77 @@
                 console.error(`Erro na obtenção dos dados para o gráfico ${error.message}`)
             })
 
-    }
-
-
-
-    const ctxU = document.getElementById('myChart2');
-
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 7, 11, 15, 10, 6, 9],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true
-                },
-
+        fetch("/medidas/tentativas", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
             },
-            plugins: {
-                legend: {
-                    labels: {
-                        font: {
-                            size: 14,
-                            family: 'avenir'
-                        }
+            body: JSON.stringify({
+                idServer: idUser
+
+            }),
+
+        })
+            .then(function (responseT) {
+                if (responseT.ok) {
+                    responseT.json().then(function (grafResult) {
+                        console.log(`Dados recebidos: ${JSON.stringify(grafResult)}`)
+
+                        var tentativas = []
+                        var pontuacaoTentativa = []
+
+                        grafResult.forEach(item => {
+                            tentativas.push(item.Tentativa)
+                            pontuacaoTentativa.push(item.pontuacao)
+
+                        })
+
+                        const ctxT = document.getElementById('myChart2');
+
+                        new Chart(ctxT, {
+                            type: 'bar',
+                            data: {
+                                labels: `${tentativas}`,
+                                datasets: [{
+                                    label: 'Pontuação por tentatitva',
+                                    data: `${pontuacaoTentativa}`,
+                                    borderWidth: 2,
+                                    borderColor: '#000000',
+                                    backgroundColor: '#b42727e6'
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        max: 10
+                                    },
+
+                                },
+                                plugins: {
+                                    legend: {
+                                        labels: {
+                                            font: {
+                                                size: 14,
+                                                family: 'avenir'
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        });
                     }
+                    )
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API')
                 }
-            }
-        }
-    });
-
-
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados para o gráfico ${error.message}`)
+            })
+    }
 
 </script>
 

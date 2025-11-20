@@ -26,7 +26,29 @@ function buscarKpis(id) {
 }
 
 
+function buscarTentativas(id) {
+    var instrucaoSql = `SELECT ROW_NUMBER() OVER (ORDER BY id) AS 'Tentativa', pontuacao FROM jogoQuiz 
+	WHERE id_usuario = '${id}';`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function rankear() {
+    var instrucaoSql = `SELECT u.nome,
+    j.pontuacao
+    FROM jogoQuiz j
+	JOIN usuario u ON j.id_usuario = u.id
+	ORDER BY j.pontuacao DESC
+	LIMIT 5;`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     buscarPreferencia,
-    buscarKpis
+    buscarKpis,
+    buscarTentativas,
+    rankear
 }
