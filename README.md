@@ -1,4 +1,4 @@
-# 🕸️ Central Aranha | 
+# 🕸️ Central Aranha
 
 <img src="https://www.thebanner.org/sites/default/files/styles/article_detail_header/public/TIN-602%20Spiderman_Homecoming_large_all.jpg?itok=28Cw_kpr" alt="banner" style="width: 100%; max-width: 900px;">
 
@@ -31,9 +31,12 @@ O Produto Mínimo Viável (MVP) do Central Aranha valida os objetivos do projeto
 * **Dashboard e Indicadores:** Permite que o usuário acompanhe o ranking de pontuações e entenda melhor seu desempenho no quiz.
 
 ---
+Para clonar o repositório **Central Aranha** e iniciar o trabalho, utilize o comando:
 
- **Para clonar o repositório, utilize o comando:**
-   ```bash git clone https://github.com/GBAlvesM/Central_Aranha.git ```
+    ```bash
+    git clone https://github.com/GBAIvesM/Central_Aranha.git
+    ```
+
 ---
 
 Desenvolvido por **Gabriel Alves** | Estudante de Análise e Desenvolvimento de Sistemas - SPTech.
